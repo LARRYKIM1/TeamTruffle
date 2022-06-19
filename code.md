@@ -2,8 +2,20 @@
 
 
 # 1.자료수집 및 가공 
-## 크롤링된 물고기 폴더, 이름 변경하여 합치기(1부터 순차적 이름 할당)
+## 물고기 사진 구글에서 크롤링
+- pip install icrawler
+- 아래는 큰입베스 (학명: Micropterus salmoides) 크롤링 예시 
+- 크롤링 방지 우회위해 적절한 이미지 개수 (max_num) 설정 필요
+```python
+from icrawler.builtin import GoogleImageCrawler
+google_crawler = GoogleImageCrawler(parser_threads = 2, downloader_threads = 4,
+storage = {"root_dir" : "../datas/큰입베스"})
+google_crawler.crawl(keyword = "Micropterus salmoides", max_num = 1000,
+min_size = (200, 200), max_size = None)
+```
 
+## 크롤링된 물고기 폴더, 이름 변경하여 합치기(1부터 순차적 이름 할당)
+- 
 ``` python
 크롤링된 물고기 폴더, 이름 변경하여 합치기(1부터 순차적 이름 할당)
 import os
